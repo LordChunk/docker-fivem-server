@@ -164,9 +164,9 @@ fi
 echo "---Starting Server---"
 cd ${SERVER_DIR}
 if [ -z "${GAME_CONFIG}" ]; then
-    screen -S FiveM -L -Logfile ${SERVER_DIR}/masterLog.0 -d -m ${SERVER_DIR}/run.sh +sv_licenseKey ${SERVER_KEY} +sv_hostname ${SRV_NAME} ${START_VARS}
+    screen -S FiveM -L -Logfile ${SERVER_DIR}/masterLog.0 -d -m ${SERVER_DIR}/run.sh +set sv_licenseKey ${SERVER_KEY} +set sv_hostname ${SRV_NAME} ${START_VARS}
 else
-    screen -S FiveM -L -Logfile ${SERVER_DIR}/masterLog.0 -d -m ${SERVER_DIR}/run.sh +exec ${GAME_CONFIG} +sv_licenseKey ${SERVER_KEY} +sv_hostname ${SRV_NAME} ${START_VARS}
+    screen -S FiveM -L -Logfile ${SERVER_DIR}/masterLog.0 -d -m ${SERVER_DIR}/run.sh +exec ${GAME_CONFIG} +set sv_licenseKey ${SERVER_KEY} +set sv_hostname ${SRV_NAME} ${START_VARS}
 fi
 sleep 2
 if [ "${ENABLE_WEBCONSOLE}" == "true" ]; then
